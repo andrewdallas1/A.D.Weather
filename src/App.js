@@ -1,8 +1,54 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import axios from 'axios';
 
 class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      lat: null,
+      lng: null,
+      epoch: null
+    }
+
+    this.getLocation = this.getLocation.bind(this);
+    this.getWeather = this.getWeather.bind(this);
+  }
+
+  componentDidMount() {
+    this.getLocation();
+  }
+
+  getLocation() {
+    axios({
+    url: '',
+    baseURL: 'https://www.googleapis.com/geolocation/v1/geolocate?key=',
+    method: 'POST'
+   }).then((res) => {
+    console.log(res);
+      this.setState({
+        lat: res.data.location.lat,
+        lng: res.data.location.lng
+      })
+      console.log(this.state.lat, this.state.lng);
+   }).then(() => {
+        this.getWeather();
+    })
+  }
+
+  getWeather() {
+    axios({
+    url: '',
+    baseURL: `https://api.darksky.net/forecast//${this.state.lat},${this.state.lng}`,
+    method: 'GET'
+   }).then((res) => {
+    console.log(res);
+      console.log()
+   })
+  }
+
+
   render() {
     return (
       <div className="App">
