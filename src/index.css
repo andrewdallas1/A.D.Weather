@@ -1,5 +1,74 @@
+
+
 body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+  background-color: rgb(45,158,224);
+  color: white;
+
 }
+
+.App {
+  width: 100%;
+  margin: 0 auto;
+}
+.clock {
+  padding-top: 200px;
+}
+.gps {
+  margin: 5px;
+}
+.zip {
+  margin: 5px;
+}
+.zipSubmit {
+  margin: 5px;
+}
+.time {
+  position: absolute;
+  top: 0;
+  right: 35px;
+}
+
+
+/*span {
+  height: 100px;
+  width: 100px;
+}
+
+
+h5 {
+
+
+  margin: 20px;
+
+}
+
+
+.currentTitle {
+  text-align: left;
+
+}
+
+.current {
+  text-align: left;
+
+}
+.info {
+  position: relative;
+  left: 10px;
+}
+
+.icon {
+  position: absolute;
+  top: 5%;
+  right: 5%;
+}
+
+*/
+
+
+
+
+

@@ -10,11 +10,9 @@
     "moment": "^2.18.1",
     "nodemon": "^1.11.0",
     "react": "^15.6.1",
-    "react-bootstrap": "^0.31.1",
     "react-dom": "^15.6.1",
     "react-fontawesome": "^1.6.1",
-    "react-skycons": "^0.3.0",
-    "react-transition-group": "^2.2.0"
+    "react-skycons": "^0.3.0"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -23,3 +21,4 @@
     "eject": "react-scripts eject"
   }
 }
+
