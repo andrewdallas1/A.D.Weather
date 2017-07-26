@@ -4,9 +4,10 @@ import axios from 'axios';
 import moment from 'moment';
 import Currently from './components/currently';
 import Hourly from './components/hourly';
+import Daily from './components/daily';
 
 import {
-  Grid, Row, Col, Button, Navbar, FormGroup, FormControl
+  Grid, Row, Col, Button, Navbar, FormGroup, FormControl, Tabs, Tab
 } from 'react-bootstrap';
 
 
@@ -21,7 +22,7 @@ class App extends Component {
       epoch: "",
       time: moment().format('hh:mm a'),
       current: "",
-      hourly: "",
+      hourly: null,
       daily: "",
       count: 0,
     }
@@ -139,8 +140,9 @@ class App extends Component {
     if(this.state.current === "") {
     return (
       <div className="App">
-
+        <Row>
         {this.askForLocation()}
+        </Row>
 
       </div>
     );
@@ -148,15 +150,27 @@ class App extends Component {
       return(
         <div className="App">
           {this.askForLocation()}
+          <Row>
+            <Tabs defaultActiveKey={1} animation={false} className="tabs">
+              <Tab eventKey={1} title="Currently" className="tab">
+                <Currently
+                  current={this.state.current}
+                />
+              </Tab>
+            <Tab eventKey={2} title="Hourly" className="tab">
+              <Hourly
+                hourly={this.state.hourly}
+              />
+            </Tab>
+            <Tab eventKey={3} title="Weekly" className="tab">
+              <Daily
+                daily={this.state.daily}
+              />
+            </Tab>
+          </Tabs>
+        </Row>
 
-          <Currently
-            current={this.state.current}
-            time={this.state.time}
-            zipCode={this.state.zipCode}
-          />
-          <Hourly
-            hourly={this.state.hourly}
-          />
+
         </div>
       );
     }
